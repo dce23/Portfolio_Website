@@ -1,0 +1,40 @@
+//Menu Button
+.menu-btn {
+  position: absolute;
+  z-index: 3;   //for menu button to always be uptop
+  right: 35px;
+  top: 35px;
+  cursor: pointer;   //used when you hover overlay
+  //Transition all of the properties
+  @include easeOut;
+
+  .btn-line {
+    width: 28px;
+    height: 3px;    //this is number of lines in the Button
+    margin: 0 0 5px 0;
+    background: #fff;
+    @include easeOut;
+  }
+
+  // Goes from three line menu button to X
+  &.close {
+    transform: rotate(180deg);
+
+    .btn-line {
+      // Rotate Line 1
+      &:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      // Hide Line 2
+      &:nth-child(2) {
+        opacity: 0
+      }
+
+      // Rotate Line 3
+      &:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+    }
+  }
+}
