@@ -38,3 +38,80 @@
     }
   }
 }
+
+// Overlay for menu
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  opacity: 0.8;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+
+  // Adds menu visible so i dont need to include the branding and nav class
+  &-branding, &-nav{
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;      // Align vertical and horizontal
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &-nav{
+    margin: 0;
+    padding: 0;
+    background: darken($primary-color, 5);
+    list-style: none;
+    transform: translate3d(0, -100%, 0);       // Menu comes in from the top
+    @include easeOut;
+
+    &.show {
+      // Slide in from the top
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  //Left side branding
+  &-branding {
+    background: $primary-color;
+    transform: translate3d(0, 100%, 0);        // Menu comes in from the top
+    @include easeOut;
+
+    &.show {
+      // Slide in from the bottom
+      transform: translate3d(0, 0, 0);
+    }
+
+    .portrait {
+      width: 250px;
+      height: 250px;
+      background: url('../img/.jpg');
+      border-radius: 50%;
+      border: solid 5px $secondary-color;
+    }
+  }
+
+  // Translate of the show until show
+  .nav-item {
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.show {
+      // Slide in from the right
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+// Delay for items slide in nav
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}
