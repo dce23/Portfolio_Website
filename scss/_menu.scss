@@ -44,7 +44,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  opacity: 0.8;
+  opacity: 0.85;
   visibility: hidden;
 
   &.show {
@@ -105,6 +105,26 @@
     &.show {
       // Slide in from the right
       transform: translate3d(0, 0, 0);
+    }
+
+    &.current > a {
+      color: $secondary-color;
+    }
+  }
+
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 35px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 450;
+    color: #fff;
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover {
+      color: $secondary-color;
     }
   }
 }
