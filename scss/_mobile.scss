@@ -1,9 +1,15 @@
 // For Widescreens
 @include mediaXL {
+  .projects {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 // For Desktops and Laptops
 @include mediaLarge {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 // For Tablets
@@ -46,6 +52,21 @@
       height: 150px;
     }
     */
+
+    .about-info {
+      grid-template-areas:
+        'bioimage'
+        'bio'
+        'job1'
+        'job2'
+        'job3';
+
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .projects {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -53,5 +74,9 @@
 @include mediaSmall {
   main#home h1 {
     margin-top: 10vh;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
   }
 }
